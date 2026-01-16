@@ -181,6 +181,19 @@ function ovesio_translate_content_ajax_handler() {
                     ],
                 ];
 
+                //Get tags
+                if(in_array($type, ['post', 'product'])) {
+                    $tags = get_the_terms($id, $type . '_tag');
+                    if (!empty($tags) && !is_wp_error($tags)) {
+                        foreach ($tags as $tag) {
+                            $request[] = [
+                                'key' => 't:' . $tag->term_id,
+                                'value' => $tag->name
+                            ];
+                        }
+                    }
+                }
+
                 // Elementor compatibility
                 if ( did_action('elementor/loaded') ) {
                     $doc = \Elementor\Plugin::$instance->documents->get( $id );
@@ -209,6 +222,19 @@ function ovesio_translate_content_ajax_handler() {
                         //     ];
                         // }
                     }
+                }
+
+                //Yoast compatibility
+                $all_meta = get_post_meta($id);
+                $yoast_meta = array_filter($all_meta, function($key) {
+                    return in_array($key, ['_yoast_wpseo_focuskw', '_yoast_wpseo_metadesc']);
+                }, ARRAY_FILTER_USE_KEY);
+
+                foreach($yoast_meta as $meta_key => $meta_value) {
+                    $request[] = [
+                        'key' => 'y:' . $meta_key,
+                        'value' => isset($meta_value[0]) ? $meta_value[0] : $meta_value
+                    ];
                 }
 
                 break;

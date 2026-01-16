@@ -3,7 +3,7 @@ Tested up to: 6.9
 Requires at least: 6.2
 Requires PHP: 7.2
 License: GPLv2 or later
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 Contributors: ovesio, awebro
 Tags: multilingual, translate, translation, language, localization
 
@@ -124,6 +124,9 @@ Yes. Products and product categories/tags are supported if WooCommerce is active
 6. Ovesio WP Plugin Example of new buttons on hover
 
 == Changelog ==
+= 1.3.6 =
+Composer file updated
+
 = 1.3.5 =
 Added Yoast support
 Post tags are now translated

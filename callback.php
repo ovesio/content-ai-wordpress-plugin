@@ -56,7 +56,7 @@ function ovesio_wp_post_callback($type, $id, $callback)
    /* phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared, WordPress.DB.PreparedSQL.InterpolatedNotPrepared */
     $query = $wpdb->prepare(
         /* phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared */
-        "SELECT * FROM {$table_name} WHERE resource = %s AND resource_id = %d AND lang = %s AND translate_id = %d AND translate_status = 0 AND content_id IS NULL",
+        "SELECT * FROM {$table_name} WHERE resource = %s AND resource_id = %d AND lang = %s AND translate_id = %d AND content_id IS NULL",
         $type,
         $id,
         $target_lang,

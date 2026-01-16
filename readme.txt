@@ -124,6 +124,9 @@ Yes. Products and product categories/tags are supported if WooCommerce is active
 6. Ovesio WP Plugin Example of new buttons on hover
 
 == Changelog ==
+= 1.3.7 =
+Bug fix: Translation not found
+
 = 1.3.6 =
 Composer file updated
 

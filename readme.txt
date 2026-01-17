@@ -2,8 +2,9 @@
 Tested up to: 6.9
 Requires at least: 6.2
 Requires PHP: 7.2
-License: GPLv2 or later
-Stable tag: 1.3.8
+License: MIT
+License URI: https://opensource.org/licenses/MIT
+Stable tag: 1.3.9
 Contributors: ovesio, awebro
 Tags: multilingual, translate, translation, language, localization
 
@@ -171,3 +172,25 @@ Composer updated.
 Log removed.
 
 Enjoy faster multilingual publishing with Ovesio! 🚀
+
+
+== Author ==
+
+Aweb Design SRL
+
+== License ==
+
+MIT License. See LICENSE file for details.
+
+== Disclaimer ==
+
+This module is provided "AS IS", without warranty of any kind, express or implied.
+The authors and contributors are not liable for any claim, damages, or other liability,
+whether in an action of contract, tort, or otherwise, arising from, out of, or in connection
+with the module or the use or other dealings in the module.
+
+This is an open-source community module and is not an official module of PrestaShop
+
+This module may rely on third-party services/APIs. Availability and output quality may vary.
+
+Use this module at your own risk. Always test in a staging environment before deploying to production.

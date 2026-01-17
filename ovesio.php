@@ -8,8 +8,8 @@
  * Text Domain: ovesio
  * Author URI: https://ovesio.com
  * Tags: Ovesio, AI Translation, multilingual, translation, content generator, woocommerce product translations, automated translations
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  * Text Domain: ovesio
  */
 

@@ -4,15 +4,13 @@ Requires at least: 6.2
 Requires PHP: 7.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
-Stable tag: 1.3.10
+Stable tag: 1.3.11
 Contributors: ovesio, awebro
 Tags: multilingual, translate, translation, language, localization
 
-Automatically translate your WordPress into 27+ languages with Ovesio's [AI Translation ](https://ovesio.com/) Engine.
-
 == Description ==
 
-Automatically translate your WordPress into 29+ languages with Ovesio's [AI Translation ](https://ovesio.com/) Engine.
+Automatically translate your WordPress into 30+ languages with Ovesio's [AI Translation ](https://ovesio.com/) Engine.
 
 ### Scale To International Markets In Hours With Multilingual AI ###
 
@@ -43,7 +41,7 @@ Here's a complete tutorial on how to get the most out of the [Ovesio WordPress P
 
 == Install & activate ==
 
-Upload the ovesio folder (extracted from ovesio-vX.X.X.zip) to /wp-content/plugins/, or install it via Plugins <span aria-hidden="true" class="wp-exclude-emoji">→</span> Add New <span aria-hidden="true" class="wp-exclude-emoji">→</span> Upload.
+Upload the ovesio folder (extracted from ovesio.zip) to /wp-content/plugins/, or install it via Plugins <span aria-hidden="true" class="wp-exclude-emoji">→</span> Add New <span aria-hidden="true" class="wp-exclude-emoji">→</span> Upload.
 
 Activate it in Plugins.
 

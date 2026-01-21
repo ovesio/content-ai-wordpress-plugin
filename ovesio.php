@@ -2,8 +2,8 @@
 
 /**
  * Plugin Name: Ovesio
- * Description: Get instant translations & contentn generator in over 27 languages, powered by the most advanced artificial intelligence technologies.
- * Version: 1.3.10
+ * Description: Get instant translations & content generator in over 30 languages, powered by the most advanced artificial intelligence technologies.
+ * Version: 1.3.11
  * Author: Ovesio
  * Text Domain: ovesio
  * Author URI: https://ovesio.com

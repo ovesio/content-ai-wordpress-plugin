@@ -1,10 +1,10 @@
 == Ovesio – Automated AI Translation ==
-Tested up to: 6.9
+Tested up to: 7.1
 Requires at least: 6.2
 Requires PHP: 7.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
-Stable tag: 1.3.11
+Stable tag: 1.3.12
 Contributors: ovesio, awebro
 Tags: multilingual, translate, translation, language, localization
 
@@ -123,6 +123,10 @@ Yes. Products and product categories/tags are supported if WooCommerce is active
 6. Ovesio WP Plugin Example of new buttons on hover
 
 == Changelog ==
+
+= 1.3.12 =
+Tested up field updated
+
 = 1.3.7 =
 Bug fix: Translation not found
 

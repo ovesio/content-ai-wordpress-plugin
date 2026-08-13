@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Ovesio
  * Description: Get instant translations & content generator in over 30 languages, powered by the most advanced artificial intelligence technologies.
- * Version: 1.3.12
+ * Version: 1.3.13
  * Author: Ovesio
  * Text Domain: ovesio
  * Author URI: https://ovesio.com
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('OVESIO_PLUGIN_VERSION', '1.3.10');
+define('OVESIO_PLUGIN_VERSION', '1.3.13');
 define('OVESIO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('OVESIO_ADMIN_DIR', OVESIO_PLUGIN_DIR . 'admin/');
 
@@ -54,6 +54,10 @@ add_action('admin_notices', function() {
 
 add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'ovesio_plugin_action_links');
 function ovesio_plugin_action_links($links) {
+    if (!ovesio_has_polylang()) {
+        return $links;
+    }
+
     $settings_link = '<a href="' . admin_url('admin.php?page=ovesio') . '">' . __('Settings', 'ovesio') . '</a>';
     array_unshift($links, $settings_link);
 
@@ -110,15 +114,29 @@ function ovesio_create_table() {
     ) $charset_collate;";
 
     dbDelta($sql);
+
+    $options = get_option('ovesio_options', []);
+    if (!is_array($options)) {
+        $options = [];
+    }
+
+    if (!array_key_exists('auto_refresh_pending', $options)) {
+        $options['auto_refresh_pending'] = 1;
+        update_option('ovesio_options', $options);
+    }
 }
 
 
 add_action('admin_menu', 'ovesio_admin_menu');
 function ovesio_admin_menu()
 {
+    if (!ovesio_has_polylang()) {
+        return;
+    }
+
     add_menu_page(
-        __('Ovesio', 'ovesio'),
-        __('Ovesio', 'ovesio'),
+        __('Ovesio - Content AI', 'ovesio'),
+        __('Ovesio - Content AI', 'ovesio'),
         'manage_options',
         'ovesio',
         'ovesio_settings_tabs',
@@ -151,7 +169,7 @@ function ovesio_admin_menu()
 add_action('admin_init', 'ovesio_register_settings');
 function ovesio_register_settings()
 {
-    if (!function_exists('pll_languages_list')) {
+    if (!ovesio_has_polylang()) {
         // Deactivate the plugin
         deactivate_plugins(plugin_basename(__FILE__));
 
@@ -165,8 +183,18 @@ function ovesio_register_settings()
         return;
     }
 
+    $options = get_option('ovesio_options', []);
+    if (is_array($options) && !array_key_exists('auto_refresh_pending', $options)) {
+        $options['auto_refresh_pending'] = 1;
+        update_option('ovesio_options', $options);
+    }
+
     register_setting('ovesio_api', 'ovesio_api_settings', 'ovesio_sanitize_api_options');
     register_setting('ovesio_settings', 'ovesio_options', 'ovesio_sanitize_options');
+}
+
+function ovesio_has_polylang() {
+    return function_exists('pll_languages_list');
 }
 
 // Register Assets
@@ -177,6 +205,17 @@ add_action('admin_enqueue_scripts', function () {
         ['jquery'],
         OVESIO_PLUGIN_VERSION,
         true
+    );
+
+    wp_localize_script(
+        'ovesio-script',
+        'ovesioAdmin',
+        [
+            'autoRefreshPending' => (bool) ovesio_get_option('ovesio_options', 'auto_refresh_pending', 1),
+            'refreshInterval' => 30,
+            'countdownLabel' => __('Refreshing in', 'ovesio'),
+            'secondsLabel' => __('seconds', 'ovesio'),
+        ]
     );
 
     wp_enqueue_style(

@@ -105,8 +105,8 @@ function ovesio_add_action_buttons($actions, $post)
     );
 
     if($pending_lang) {
-        $pending_lang = implode(', ', $pending_lang);
-        $actions['pending_translations'] = '<span class="new-translation">' . esc_html__('Pending translations', 'ovesio') . ': ' . $pending_lang . '</span>';
+        $pending_lang = implode(' ', $pending_lang);
+        $actions['pending_translations'] = '<span class="new-translation ovesio-pending-translations"><span class="ovesio-pending-label">' . esc_html__('Pending translations', 'ovesio') . '</span>: ' . $pending_lang . '</span>';
     }
 
     if($entries) {

@@ -4,13 +4,13 @@ Requires at least: 6.2
 Requires PHP: 7.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
-Stable tag: 1.3.12
+Stable tag: 1.3.13
 Contributors: ovesio, awebro
 Tags: multilingual, translate, translation, language, localization
 
 == Description ==
 
-Automatically translate your WordPress into 30+ languages with Ovesio's [AI Translation ](https://ovesio.com/) Engine.
+Automatically translate your WordPress into 30+ languages with Ovesio's [Content AI](https://ovesio.com/) Engine.
 
 ### Scale To International Markets In Hours With Multilingual AI ###
 
@@ -48,7 +48,7 @@ Activate it in Plugins.
 After activation the plugin creates its own table in the database – nothing you need to do.
 
 == First-time setup ==
-(Settings <span aria-hidden="true" class="wp-exclude-emoji">→</span> Ovesio)
+**Important:** Before configuring the module, ensure you have installed and configure Polylang plugin. Also keep in mind that Ovesio translates content, but system files or the emails send to your customers must be translated manually or by using other language packs.
 
 === API tab ===
 – API URL – leave default unless Ovesio told you otherwise.
@@ -115,8 +115,8 @@ Yes. Products and product categories/tags are supported if WooCommerce is active
 
 == Screenshots ==
 
-1. Ovesio AI's Dashboard
-2. Ovesio AI's Translations List
+1. Ovesio - Content AI's Dashboard
+2. Ovesio - Content AI's Translations List
 3. Ovesio WP Plugin API Settings
 4. Ovesio WP Plugin Translation Settings
 5. Ovesio WP Plugin Requests List
@@ -124,8 +124,15 @@ Yes. Products and product categories/tags are supported if WooCommerce is active
 
 == Changelog ==
 
-= 1.3.12 =
+= 1.3.13 =
 Tested up field updated
+
+= 1.3.12 =
+- Language normalization fixes for callback -> Polylang mapping.
+- Polylang translation group linking fixes for callbacks.
+- Term/tag mapping fixes (`post_tag`, `product_tag`).
+- Pending translations auto-refresh setting (default enabled).
+- 30s pending counter + auto-refresh in admin list pages.
 
 = 1.3.7 =
 Bug fix: Translation not found
@@ -168,6 +175,9 @@ Initial WooCommerce product translation support.
 Initial release – Posts, Pages, Categories, Tags translation with Polylang integration.
 
 == Upgrade Notice ==
+= 1.3.12 =
+Includes callback linking fixes, tag mapping fixes, and pending auto-refresh with countdown.
+
 = 1.3.3=
 Lang flags fix.
 Composer updated.
